@@ -1,0 +1,17 @@
+[ignore]
+
+[include]
+
+[libs]
+  flow-typed
+
+[lints]
+
+[options]
+  module.name_mapper='^test/\(.*\)$' -> '<PROJECT_ROOT>/src/test/\1'
+  module.name_mapper='^types/\(.*\)$' -> '<PROJECT_ROOT>/src/types/\1'
+  module.name_mapper='^utils/\(.*\)$' -> '<PROJECT_ROOT>/src/utils/\1'
+  suppress_comment= \\(.\\|\n\\)*\\$FlowIgnore
+  traces=3
+
+[strict]

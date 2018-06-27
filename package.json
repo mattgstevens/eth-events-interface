@@ -1,0 +1,31 @@
+{
+  "name": "eth-events-interface",
+  "version": "1.0.0",
+  "main": "build/index.js",
+  "license": "MIT",
+  "scripts": {
+    "--- Build ---": "---",
+    "build:comment": "flow-remove-types is faster than using the babel plugin",
+    "build": "rm -rf build/ && flow-remove-types --pretty src/ --out-dir build/",
+    "--- Test ---": "---",
+    "test": "jest --config config/jest.js --coverage",
+    "test:watch": "yarn test --watch",
+    "--- Demo ---": "---",
+    "demo:simple": "flow-node examples/simple-indexer/index.js | bunyan"
+  },
+  "dependencies": {
+    "bn.js": "^4.11.8",
+    "ethereumjs-abi": "^0.6.5",
+    "js-sha3": "^0.7.0"
+  },
+  "devDependencies": {
+    "bunyan": "^1.8.12",
+    "eth-query": "^2.1.2",
+    "flow-bin": "^0.58",
+    "flow-remove-types": "^1.2.3",
+    "flow-typed": "^2.4.0",
+    "jest": "^23.1.0",
+    "prettier": "^1.11.1",
+    "web3-providers-http": "^1.0.0-beta.33"
+  }
+}
