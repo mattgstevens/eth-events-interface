@@ -11,7 +11,9 @@
     "test": "jest --config config/jest.js --coverage",
     "test:watch": "yarn test --watch",
     "--- Demo ---": "---",
-    "demo:simple": "flow-node examples/simple-indexer/index.js | bunyan"
+    "demo:simple": "flow-node examples/simple-indexer/index.js | bunyan",
+    "--- npm hooks ---": "---",
+    "prepublish": "yarn build"
   },
   "dependencies": {
     "bn.js": "^4.11.8",
