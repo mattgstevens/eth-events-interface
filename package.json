@@ -1,6 +1,6 @@
 {
   "name": "eth-events-interface",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "build/index.js",
   "author": "mattgstevens <mattgstevens@gmail.com>",
   "license": "MIT",
@@ -8,10 +8,8 @@
     "--- Build ---": "---",
     "build:comment": "flow-remove-types is faster than using the babel plugin",
     "build": "yarn build:js && yarn build:flow",
-    "build:js":
-      "rm -rf build/ && flow-remove-types --ignore '.*.test.js' --pretty src/ --out-dir build/",
-    "build:flow":
-      "for filepath in $(find ./src -name '*.js' -not -name '*.test.js'); do cp $filepath `echo $filepath | sed 's/\\/src\\//\\/build\\//g'`.flow; done",
+    "build:js": "rm -rf build/ && flow-remove-types --ignore '.*.test.js' --pretty src/ --out-dir build/",
+    "build:flow": "for filepath in $(find ./src -name '*.js' -not -name '*.test.js'); do cp $filepath `echo $filepath | sed 's/\\/src\\//\\/build\\//g'`.flow; done",
     "--- Test ---": "---",
     "test": "jest --config config/jest.js --coverage",
     "test:watch": "yarn test --watch",
