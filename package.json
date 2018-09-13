@@ -7,7 +7,11 @@
   "scripts": {
     "--- Build ---": "---",
     "build:comment": "flow-remove-types is faster than using the babel plugin",
-    "build": "rm -rf build/ && flow-remove-types --pretty src/ --out-dir build/",
+    "build": "yarn build:js && yarn build:flow",
+    "build:js":
+      "rm -rf build/ && flow-remove-types --ignore '.*.test.js' --pretty src/ --out-dir build/",
+    "build:flow":
+      "for filepath in $(find ./src -name '*.js' -not -name '*.test.js'); do cp $filepath `echo $filepath | sed 's/\\/src\\//\\/build\\//g'`.flow; done",
     "--- Test ---": "---",
     "test": "jest --config config/jest.js --coverage",
     "test:watch": "yarn test --watch",
